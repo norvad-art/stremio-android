@@ -152,12 +152,12 @@ jobs:
         run: ./gradlew :app:assembleDebug --warning-mode all
 
       - name: Verify debug APK outputs
-        run: python .github/scripts/verify-apk-outputs.py app/build/outputs/apk/debug armeabi-v7a universal
+        run: python .github/scripts/verify-apk-outputs.py app/build/outputs/apk/debug armeabi-v7a arm64-v8a x86 x86_64 universal
 
-      - name: Upload debug APKs
+      - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: stremio-mobile-debug-apks-armeabi-v7a
-          path: app/build/outputs/apk/debug/*.apk
+          name: stremio-mobile-debug-apk-armeabi-v7a
+          path: app/build/outputs/apk/debug/*armeabi-v7a*.apk
           if-no-files-found: error
           retention-days: 14
