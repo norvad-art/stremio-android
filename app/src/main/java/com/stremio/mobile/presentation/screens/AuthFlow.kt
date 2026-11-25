@@ -58,6 +58,9 @@ import com.stremio.mobile.auth.FacebookLoginBridge
 import com.stremio.mobile.presentation.components.StremioMark
 import com.stremio.mobile.presentation.components.ThemedButton
 import com.stremio.mobile.presentation.components.ThemedTextButton
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+
 
 enum class AuthScreen {
     Intro,
@@ -179,6 +182,7 @@ private fun IntroScreen(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
                 .align(Alignment.Center),
             verticalArrangement = Arrangement.spacedBy(18.dp),
         ) {
